@@ -1,0 +1,44 @@
+.app-menu{
+    width: 240px;
+    min-width: 240px !important;
+    color: #fff;
+    background: #3240a1;
+    -webkit-box-shadow: 4px 5px 4px 0 rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 4px 5px 4px 0 rgba(0, 0, 0, 0.05) !important;
+    position: relative !important;
+    -webkit-transform: translate3d(0px, 0px, 0px) !important;
+    transform: translate3d(0px, 0px, 0px) !important;
+    visibility: visible !important;
+    overflow: hidden;
+    padding: 15px 0;
+}
+.mat-drawer-container{
+    display: flex;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    width: 100%;
+}
+.mat-drawer-content{
+    width: 100%;
+    overflow: hidden;
+}
+.app{
+    display: flex;
+    height: 100vh;
+}
+.mat-list-item{
+    font-size: 15px;
+    color: #ffffff;
+    text-align: left;
+    height: 56px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.slidenav_list{
+    margin-top: 40px;
+}
+.app_outlet{
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+}
