@@ -14,6 +14,10 @@ import { MatListModule } from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HttpservicesService } from './httpservices.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
  
 @NgModule({
   declarations: [
@@ -29,11 +33,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatInputModule,
     MatCheckboxModule,
     HttpClientModule,
+    ReactiveFormsModule,
     CustomRoutingModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatFormFieldModule
   ],
  
   providers: [

@@ -1,3 +1,23 @@
+<div class="form-builder">
+  <form [formGroup]="userdetails" (ngSubmit)="Submit(userdetails)">
+    <mat-form-field>
+      <input matInput placeholder="firstname" formControlName="firstname">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="lastname" formControlName="lastname">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="city" formControlName="city">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="address" formControlName="address"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!userdetails.valid">Submit</button>
+  </form>
+</div>
 <p>
-  builders works!
+  Form Status: {{ userdetails.status }}
 </p>

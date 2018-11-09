@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpservicesService {
 url;
-datagetting;
   constructor(private httpcall:HttpClient) {
     this.url="https://jsonplaceholder.typicode.com/posts";
    }

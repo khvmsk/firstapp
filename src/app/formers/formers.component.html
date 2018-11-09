@@ -1,3 +1,29 @@
-<p>
-  formers works!
-</p>
+<div class="form-group">
+  <form [formGroup]="formgroupstructure" (ngSubmit)="formGroup(formgroupstructure)">
+    <mat-form-field>
+      <input matInput placeholder="firsname" formControlName="firstname">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="lastname" formControlName="lastname">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="email" formControlName="email">
+    </mat-form-field>
+    <div class="nestedformgroup">
+      <div formGroupName="address">
+        <mat-form-field>
+          <input matInput placeholder="street" formControlName="street">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="city" formControlName="city">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="area" formControlName="area">
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="!formgroupstructure.valid">Submit</button>
+    <button mat-raised-button color="primary" (click)="updateProfile('formgroupstructure')">Update</button>
+  </form>
+</div>
+<p>formgroupstructure status :{{formgroupstructure.status}}</p>
