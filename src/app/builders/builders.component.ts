@@ -11,26 +11,36 @@ import { FormArray } from '@angular/forms';
 export class BuildersComponent implements OnInit {
   fc = new FormControl();
   userdetails: FormGroup;
+  submitted: boolean;
   constructor(private titleService: Title, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setTitle("Builders");
     this.createForm();
+
   }
   setTitle(newtitle: string) {
     this.titleService.setTitle(newtitle);
   }
   createForm() {
     this.userdetails = this.fb.group({
-      firstname: [null, Validators.required],
-      lastname: [null, Validators.required],
+      firstname: [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(8)])],
+      lastname: [null, Validators.compose([Validators.required, Validators.maxLength(8)])],
       city: [null, Validators.required],
-      email: [null, Validators.required],
-      address: [null, Validators.required],
+      email: [null, Validators.compose([Validators.required, Validators.email])],
+      address: [null, Validators.compose([Validators.required, Validators.maxLength(30)])],
     })
   }
-
+  get f() { return this.userdetails.controls }
+  // get firstname() { return this.userdetails.get('firstname'); }
   Submit() {
-    console.log(this.userdetails.value);
+    this.submitted = true;
+    console.log(JSON.stringify(this.userdetails.value));
+    if (this.userdetails.invalid) {
+      return
+    }
+    else {
+      alert("Data submit success");
+    }
   }
 }

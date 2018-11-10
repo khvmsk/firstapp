@@ -1,4 +1,5 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';  
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AgGridComponent } from './ag-grid/ag-grid.component';
+import { AgGridModule } from 'ag-grid-angular';
 
  
 @NgModule({
@@ -25,11 +28,13 @@ import {MatInputModule} from '@angular/material/input';
     BuildersComponent,
     FormersComponent,
     CarsComponent,
-    DashboardComponent
+    DashboardComponent,
+    AgGridComponent
   ],
   imports: [
     BrowserModule,
     MatSidenavModule,
+    CommonModule,
     MatListModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -40,7 +45,8 @@ import {MatInputModule} from '@angular/material/input';
     CustomRoutingModule,
     MatMenuModule,
     MatToolbarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AgGridModule.withComponents([]),
   ],
  
   providers: [

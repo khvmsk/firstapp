@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BuildersComponent } from './builders/builders.component';
 import { FormersComponent } from './formers/formers.component';
 import { CarsComponent } from './cars/cars.component';
+import { AgGridComponent } from './ag-grid/ag-grid.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,10 @@ import { CarsComponent } from './cars/cars.component';
       {
         path: "formers",
         component:FormersComponent
+      },
+      {
+        path: "agGrid",
+        component:AgGridComponent
       },
     ]),
   ],

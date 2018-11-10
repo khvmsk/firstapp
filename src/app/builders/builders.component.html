@@ -1,21 +1,48 @@
 <div class="form-builder">
   <form [formGroup]="userdetails" (ngSubmit)="Submit(userdetails)">
     <mat-form-field>
-      <input matInput placeholder="firstname" formControlName="firstname">
+      <input matInput placeholder="firstname" formControlName="firstname" required>
+      <div *ngIf="f.firstname.invalid && (f.firstname.dirty || f.firstname.touched)" class="alert alert-danger">
+        <div *ngIf="f.firstname.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="f.firstname.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="f.firstname.errors.maxlength">
+          Name must be at least 8 characters long.
+        </div>
+      </div>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="lastname" formControlName="lastname">
+      <input matInput placeholder="lastname" formControlName="lastname" required>
+      <div *ngIf="f.lastname.invalid && (f.lastname.dirty || f.lastname.touched)" class="alert alert-danger">
+        <div *ngIf="f.lastname.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="f.lastname.errors.maxlength">
+          Name must be at least 4 characters long.
+        </div>
+      </div>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="city" formControlName="city">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="email" formControlName="email">
+      <input matInput placeholder="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors}">
+        <div *ngIf="submitted && f.email.errors || f.email.invalid && (f.email.dirty || f.email.touched)" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput placeholder="address" formControlName="address"></textarea>
+      <textarea matInput placeholder="address" formControlName="address" [ngClass]="{'invalid-text' : submitted && f.address.errors}"></textarea>
+      <div *ngIf="submitted && f.address.errors">
+        <div *ngIf="f.address.errors.required">address required</div>
+        <div *ngIf ="f.address.errors.maxlength">address must be 40 characters</div>
+      </div>
     </mat-form-field>
-    <button mat-raised-button color="primary" [disabled]="!userdetails.valid">Submit</button>
+    <button mat-raised-button color="primary" >Submit</button>
   </form>
 </div>
 <p>
